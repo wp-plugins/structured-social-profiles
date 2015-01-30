@@ -2,52 +2,57 @@
 function ssp_info() {
 	if (is_front_page()) {
 	$options = get_option('ssp');
-	echo '<!-- Structured Social Profiles Plugin for WordPress: http://peadig.com/wordpress-plugins/structured-social-profiles/ -->
+	$ssp = '';
+	$ssp .= '<!-- Structured Social Profiles Plugin for WordPress: http://peadig.com/wordpress-plugins/structured-social-profiles/ -->
 <script type="application/ld+json">
 { "@context" : "http://schema.org",
 "@type" : "'.$options['type'].'",
 ';
-	if (!empty($options['org']) && $options['type']=="Organization") { echo '"name" : "'.$options['org'].'",
+	if (!empty($options['org']) && $options['type']=="Organization") { $ssp .= '"name" : "'.$options['org'].'",
 '; }
-	elseif (!empty($options['name']) && $options['type']=="Person") { echo '"name" : "'.$options['name'].'",
+	elseif (!empty($options['name']) && $options['type']=="Person") { $ssp .= '"name" : "'.$options['name'].'",
 '; }
-	echo '"url" : "'.get_bloginfo('url').'",';
-	if (!empty($options['logo'])) { echo '"logo" : "'.$options['logo'].'",
+	$ssp .= '"url" : "'.get_bloginfo('url').'",';
+	if (!empty($options['logo'])) { $ssp .= '"logo" : "'.$options['logo'].'",
 '; }
-	echo '"sameAs" : [ 
+	$ssp .= '"sameAs" : [ 
 ';
 	if (!empty($options['facebook'])) {
-		echo '"'.$options['facebook'].'",
+		$ssp .= '"'.$options['facebook'].'",
 ';
 	}
 	if (!empty($options['twitter'])) {
-		echo '"'.$options['twitter'].'",
+		$ssp .= '"'.$options['twitter'].'",
 ';
 	}
 	if (!empty($options['gplus'])) {
-		echo '"'.$options['gplus'].'",
+		$ssp .= '"'.$options['gplus'].'",
 ';
 	}
 	if (!empty($options['instagram'])) {
-		echo '"'.$options['instagram'].'",
+		$ssp .= '"'.$options['instagram'].'",
 ';
 	}
 	if (!empty($options['youtube'])) {
-		echo '"'.$options['youtube'].'",
+		$ssp .= '"'.$options['youtube'].'",
 ';
 	}
 	if (!empty($options['linkedin'])) {
-		echo '"'.$options['linkedin'].'"
+		$ssp .= '"'.$options['linkedin'].'",
 ';
 	}
 	if (!empty($options['myspace'])) {
-		echo '"'.$options['myspace'].'"
+		$ssp .= '"'.$options['myspace'].'",
 ';
 	}
-	echo ']
+	//$ssp = rtrim($ssp,",");
+	$ssp = substr($ssp, 0, -2);
+	$ssp .= '
+]
 }
 </script>';
 }
+echo $ssp;
 }
 add_action('wp_head', 'ssp_info');
 ?>

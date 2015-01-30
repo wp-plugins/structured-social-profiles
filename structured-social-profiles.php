@@ -3,7 +3,7 @@
 Plugin Name:  Structured Social Profiles
 Plugin URI:   http://peadig.com/wordpress-plugins/structured-social-profiles/?utm_source=WordPress&utm_medium=Admin&utm_campaign=Social%2BProfiles
 Description:  This plugin adds structured data to Google search results.
-Version:      1.0
+Version:      1.0.1
 Author: Alex Moss
 Author URI: http://peadig.com/people/alex-moss/
 License: GPL v3

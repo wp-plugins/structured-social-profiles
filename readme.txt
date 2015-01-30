@@ -5,7 +5,7 @@ License: GPLv3
 Tags: social, structured data, social profiles, google
 Requires at least: 3.1
 Tested up to: 4.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 This plugin adds structured data to Google search results.
 
@@ -27,3 +27,9 @@ This section describes how to install the plugin and get it working.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to the Structured Social Profiles settings
 4. Go through the steps and hit update!
+
+== Changelog ==
+
+= 1.0.1 =
+
+* Quick bug fix to remove last comma instance
